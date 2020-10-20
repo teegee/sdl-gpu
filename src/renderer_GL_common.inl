@@ -3370,7 +3370,7 @@ static GPU_Image* gpu_copy_image_pixels_only(GPU_Renderer* renderer, GPU_Image* 
                     GPU_UnsetImageVirtualResolution(image);
                 }
 
-				renderer->impl->Blit(renderer, image, NULL, target, (float)(image->w / 2), (float)(image->h / 2));
+				renderer->impl->Blit(renderer, image, NULL, target, (float)(image->w * image->anchor_x), (float)(image->h * image->anchor_y));
 
 				// Restore the saved settings
 				GPU_SetColor(image, color);
